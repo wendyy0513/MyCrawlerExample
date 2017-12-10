@@ -24,9 +24,9 @@ public class FacebookExam {
 		// 遠端資料路徑
 
 		String uri = 
-				"https://graph.facebook.com/v2.6"
-				+ "/search?q="
-				+ "&access_token=";
+				"https://graph.facebook.com/v2.11"
+				+ "/adele/posts?fields=reactions.type(LOVE).limit(0).summary(total_count).as(reactions_love)"
+				+ "&access_token=EAACEdEose0cBAOfhsZBpDmau3NT53IAA9wImEDNUZCF35tXZCZCN6bfPWWLZATDd5G6CSOgQa0s3qbkmZCZApuwjNNKTjIxnzhZC35vBViUg4e4q1i1USmxZCG1dKxmWfs2fk0N802EATKGEM4tBoWwftkB9dyhAufcLZAAig8F0cqEAWjnbnNpHZC3ZCNNbsxZAagA8ZD";
 
 
 		Elements elems =
@@ -41,7 +41,7 @@ public class FacebookExam {
 			String id = data.select("id").text();
 
 			// FIXIT
-			String reactions = "";
+			String reactions = data.select("reactions_love summary total_count").text();
 
 
 			output += id + "," + reactions + "\n";
